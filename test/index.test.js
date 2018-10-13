@@ -25,25 +25,90 @@
 import deepExtend from '../src';
 
 it('deepExtend(null, null) should return null', () => {
-  expect(deepExtend(null, null)).toEqual(null);
+  const a = null;
+  const b = null;
+  expect(deepExtend(a, b)).toEqual(null);
 });
 
-it('deepExtend(null, {a: true}) should return an object', () => {
-  expect(deepExtend(null, { a: true })).toEqual({ a: true });
+it('deepExtend(undefined, undefined) should return undefined', () => {
+  const a = undefined;
+  const b = undefined;
+  expect(deepExtend(a, b)).toEqual(undefined);
 });
 
-it('deepExtend({a: true}, null) should return an object', () => {
-  expect(deepExtend({ a: true }, null)).toEqual({ a: true });
+// Objects
+
+it('deepExtend() should replace null values', () => {
+  const a = null;
+  const b = { a: 1 };
+  expect(deepExtend(a, b)).toEqual(b);
 });
 
-it('deepExtend({a: true}, {a: false}) should merge objects', () => {
-  expect(deepExtend({ a: true }, { a: false })).toEqual({ a: false });
-  expect(deepExtend({ a: true }, { b: false })).toEqual({ a: true, b: false });
+it('deepExtend() should replace undefined values', () => {
+  const a = undefined;
+  const b = { a: 1 };
+  expect(deepExtend(a, b)).toEqual(b);
 });
 
-it('deepExtend({a: true}, {b: {c: false}}) should merge objects recursively', () => {
-  expect(deepExtend({ a: true, b: { d: 0 } }, { b: { c: false } })).toEqual({
-    a: true,
-    b: { d: 0, c: false },
-  });
+it('deepExtend() should ignore null values', () => {
+  const a = { a: 1 };
+  const b = null;
+  expect(deepExtend(a, b)).toEqual(a);
+});
+
+it('deepExtend() should ignore undefined values', () => {
+  const a = { a: 1 };
+  const b = undefined;
+  expect(deepExtend(a, b)).toEqual(a);
+});
+
+it('deepExtend() should replace existing attributes', () => {
+  const a = { a: 1 };
+  const b = { a: 2 };
+  expect(deepExtend(a, b)).toEqual(b);
+});
+
+it('deepExtend() should merge new attributes', () => {
+  const a = { a: 1 };
+  const b = { b: 2 };
+  const r = { a: 1, b: 2 };
+  expect(deepExtend(a, b)).toEqual(r);
+});
+
+it('deepExtend() should merge objects recursively', () => {
+  const a = { a: { b: 1, c: 3 }, d: 4 };
+  const b = { a: { b: 2 } };
+  const r = { a: { b: 2, c: 3 }, d: 4 };
+  expect(deepExtend(a, b)).toEqual(r);
+});
+
+// Arrays
+
+it('deepExtend() should merge arrays by replacing index value', () => {
+  const a = [0, 1];
+  const b = [0, 2];
+  expect(deepExtend(a, b)).toEqual(b);
+});
+
+it('deepExtend() should ignore undefined values when merging arrays', () => {
+  const a = [0, 1];
+  const b = [0, undefined];
+  const r = [0, 1];
+  expect(deepExtend(a, b)).toEqual(r);
+});
+
+it('deepExtend() should merge arrays recursively', () => {
+  const a = [1, [2, [3]]];
+  const b = [undefined, [4, [undefined, 5], 6], 7];
+  const r = [1, [4, [3, 5], 6], 7];
+  expect(deepExtend(a, b)).toEqual(r);
+});
+
+// Arrays to Object
+
+it('deepExtend() should merge arrays into objects', () => {
+  const a = {};
+  const b = [1];
+  const r = { 0: 1 };
+  expect(deepExtend(a, b)).toEqual(r);
 });

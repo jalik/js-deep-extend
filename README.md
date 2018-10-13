@@ -41,6 +41,20 @@ const customColors = {
 const finalColors = deepExtend({}, defaultColors, customColors);
 ```
 
+## Merging arrays
+
+See below how it is easy to merge arrays recursively.
+
+```js
+import deepExtend from "@jalik/deep-extend";
+
+const a = [1, [2, [3]]];
+const b = [undefined, [4, [undefined, 5], 6], 7];
+const c = deepExtend([], a, b);
+
+// c would result to [1, [4, [3, 5], 6], 7]
+```
+
 ## Changelog
 
 History of releases is in the [changelog](./CHANGELOG.md).

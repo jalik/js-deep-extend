@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import extend from '@jalik/extend';
-
 /**
  * Merge deep objects
  * @return {*}
@@ -34,18 +32,31 @@ function deepExtend(...args) {
   for (let i = 0; i < args.length; i += 1) {
     const b = args[i];
 
-    if (typeof b === 'object' && b !== null
-      && typeof a === 'object' && a !== null) {
-      const keys = Object.keys(b);
+    if (a !== null && b !== null && typeof a !== 'undefined' && typeof b !== 'undefined') {
+      // Merge objects
+      if (typeof a === 'object' && typeof b === 'object') {
+        // Merge arrays
+        if (a instanceof Array && b instanceof Array) {
+          for (let index = 0; index < b.length; index += 1) {
+            if (typeof b[index] !== 'undefined') {
+              if (b[index] !== null && typeof b[index] === 'object') {
+                a[index] = deepExtend(a[index], b[index]);
+              } else {
+                a[index] = b[index];
+              }
+            }
+          }
+        } else {
+          const keys = Object.keys(b);
 
-      for (let j = 0; j < keys.length; j += 1) {
-        const key = keys[j];
+          for (let j = 0; j < keys.length; j += 1) {
+            const key = keys[j];
 
-        if (typeof b[key] !== 'undefined') {
-          if (typeof b[key] === 'object' && b[key] !== null) {
-            a[key] = extend(a[key], b[key]);
-          } else {
-            a[key] = b[key];
+            if (typeof b[key] === 'object' && b[key] !== null) {
+              a[key] = deepExtend(a[key], b[key]);
+            } else if (typeof b[key] !== 'undefined') {
+              a[key] = b[key];
+            }
           }
         }
       }
