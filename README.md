@@ -38,7 +38,7 @@ const customColors = {
 // Merge all colors into a new object.
 // The final colors will have custom blue and yellow colors,
 // but the other colors will be the default ones.
-const finalColors = deepExtend({}, colorSet1, colorSet2);
+const finalColors = deepExtend({}, defaultColors, customColors);
 ```
 
 ## Changelog
