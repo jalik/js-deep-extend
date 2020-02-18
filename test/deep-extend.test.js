@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2019 Karl STEIN
+ * Copyright (c) 2020 Karl STEIN
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import deepExtend from '../src';
+import deepExtend from '../src/deep-extend';
 
 it('deepExtend(null, null) should return null', () => {
   const a = null;
