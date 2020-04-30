@@ -82,6 +82,12 @@ it('deepExtend() should merge objects recursively', () => {
   expect(deepExtend(a, b)).toEqual(r);
 });
 
+it('should not modify input array', () => {
+  const a = { array: null };
+  const b = { array: [1, 2, 3] };
+  expect(deepExtend(a, b).array).not.toBe(b.array);
+});
+
 // Arrays
 
 it('deepExtend() should merge arrays by replacing index value', () => {
@@ -102,6 +108,12 @@ it('deepExtend() should merge arrays recursively', () => {
   const b = [undefined, [4, [undefined, 5], 6], 7];
   const r = [1, [4, [3, 5], 6], 7];
   expect(deepExtend(a, b)).toEqual(r);
+});
+
+it('should not modify input array', () => {
+  const a = null;
+  const b = [1, 2, 3];
+  expect(deepExtend(a, b)).not.toBe(b);
 });
 
 // Arrays to Object

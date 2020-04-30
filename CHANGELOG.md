@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.6
+- Fixes merging of arrays by cloning them in the extended object
+
 ## v1.1.5
 - Updates dependencies
 
