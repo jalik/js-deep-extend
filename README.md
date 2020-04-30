@@ -1,4 +1,5 @@
 # @jalik/deep-extend
+
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/jalik/js-deep-extend.svg)
 [![Build Status](https://travis-ci.com/jalik/js-deep-extend.svg?branch=master)](https://travis-ci.com/jalik/js-deep-extend)
 ![GitHub](https://img.shields.io/github/license/jalik/js-deep-extend.svg)
@@ -20,29 +21,44 @@ The following code shows how to merge objects without losing values that are not
 import deepExtend from "@jalik/deep-extend";
 
 const defaultColors = {
-    cold: {
-        blue: "#0000FF",
-        green: "#00FF00"
-    },
-    hot: {
-        red: "#FF0000",
-        yellow: "#FFFF00"
-    }
+  cold: {
+    blue: '#0000FF',
+    green: '#00FF00',
+  },
+  hot: {
+    red: '#FF0000',
+    yellow: '#FFFF00',
+  },
 };
 
 const customColors = {
-    cold: {
-        blue: "#48C2ED"
-    },
-    hot: {
-        yellow: "#E6CB5F"
-    }
+  cold: {
+    blue: '#48C2ED',
+  },
+  hot: {
+    yellow: '#E6CB5F',
+  },
 };
 
 // Merge all colors into a new object.
 // The final colors will have custom blue and yellow colors,
 // but the other colors will be the default ones.
-const finalColors = deepExtend({}, defaultColors, customColors);
+const result = deepExtend({}, defaultColors, customColors);
+```
+
+The result:
+
+```json
+{
+  "cold": {
+    "blue": "#48C2ED",
+    "green": "#00FF00"
+  },
+  "hot": {
+    "red": "#FF0000",
+    "yellow": "#E6CB5F"
+  }
+}
 ```
 
 ## Merging arrays
@@ -54,9 +70,22 @@ import deepExtend from "@jalik/deep-extend";
 
 const a = [1, [2, [3]]];
 const b = [undefined, [4, [undefined, 5], 6], 7];
-const c = deepExtend([], a, b);
 
-// c would result to [1, [4, [3, 5], 6], 7]
+const result = deepExtend([], a, b);
+```
+
+The result:
+
+```json
+[
+  1,
+  [
+    4,
+    [3, 5],
+    6
+  ],
+  7
+]
 ```
 
 ## Changelog
