@@ -1,29 +1,32 @@
 # Changelog
 
+## v1.1.8
+- Upgrades dependencies
+
 ## v1.1.7
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.6
 - Fixes merging of arrays by cloning them in the extended object
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.5
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.4
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.3
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.2
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.1.0
 - Lib available in ES6+ syntax (see `src` folder) to enable auto-completion in IDEs
 
 ## v1.0.2
-- Updates dependencies
+- Upgrades dependencies
 
 ## v1.0.1
 - Fixes recursive merging of arrays
