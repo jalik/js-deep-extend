@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import deepExtend from '../src/deep-extend';
+import deepExtend from '../src';
 
 describe('deepExtend(null, null)', () => {
   it('should return null', () => {
