@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/jalik/js-deep-extend/issues"
   },
-  "main": "dist/index.js",
-  "esnext": "src/index.js",
+  "main": "dist/deepExtend.js",
+  "esnext": "src/deepExtend.js",
   "sideEffects": false,
   "scripts": {
     "build": "babel src -d dist",

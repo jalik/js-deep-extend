@@ -3,7 +3,7 @@
  * Copyright (c) 2020 Karl STEIN
  */
 
-import deepExtend from '../src';
+import deepExtend from '../src/deepExtend';
 
 describe('deepExtend(null, null)', () => {
   it('should return null', () => {
