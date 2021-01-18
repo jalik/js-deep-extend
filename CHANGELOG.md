@@ -1,13 +1,15 @@
 # Changelog
 
+## v1.1.11
+- Upgraded dependencies
+
 ## v1.1.10
-- Renamed index.js to deepExtend.js
+- Added `esnext` and `sideEffects` to package.json
+- Renamed deep-extend.js to deepExtend.js
+- Upgraded dependencies
 
 ## v1.1.9 (deprecated)
 **This version has been published with unwanted changes**
-- Added `esnext` and `sideEffects` to package.json
-- Renamed deep-extend.js to index.js
-- Upgraded dependencies
 
 ## v1.1.8
 - Upgraded dependencies
