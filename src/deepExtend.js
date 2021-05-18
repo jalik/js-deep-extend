@@ -58,10 +58,13 @@ function deepExtend(...args) {
           for (let j = 0; j < keys.length; j += 1) {
             const key = keys[j];
 
-            if (typeof b[key] === 'object' && b[key] !== null) {
-              a[key] = deepExtend(a[key], b[key]);
-            } else if (typeof b[key] !== 'undefined') {
-              a[key] = b[key];
+            // Avoid prototype pollution.
+            if (key !== '__proto__') {
+              if (typeof b[key] === 'object' && b[key] !== null) {
+                a[key] = deepExtend(a[key], b[key]);
+              } else if (typeof b[key] !== 'undefined') {
+                a[key] = b[key];
+              }
             }
           }
         }

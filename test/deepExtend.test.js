@@ -144,3 +144,13 @@ describe('deepExtend(object, array)', () => {
     expect(deepExtend(a, b)).toEqual(r);
   });
 });
+
+describe('deepExtend({}, { __proto__: { polluted: "polluted" } })', () => {
+  it('should not pollute prototype', () => {
+    const a = {};
+    const b = JSON.parse('{"__proto__": {"polluted": "polluted"}}');
+    const result = deepExtend(a, b);
+    expect(result).toStrictEqual({});
+    expect({}.polluted).toBeUndefined();
+  });
+});
