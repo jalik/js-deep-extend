@@ -15,7 +15,8 @@ Use it when you need to merge nested objects.
 
 ## Merging deep objects
 
-The following code shows how to merge objects without losing values that are not defined in objects to merge.
+The following code shows how to merge objects without losing values that are not defined in objects
+to merge.
 
 ```js
 import deepExtend from "@jalik/deep-extend";
@@ -81,7 +82,10 @@ The result:
   1,
   [
     4,
-    [3, 5],
+    [
+      3,
+      5
+    ],
     6
   ],
   7
