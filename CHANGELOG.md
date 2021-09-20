@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.14
+
+- Upgraded dependencies
+
 ## v1.1.13
 
 - Upgraded dependencies
