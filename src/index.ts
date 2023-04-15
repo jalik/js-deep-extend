@@ -1,16 +1,15 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2020 Karl STEIN
+ * Copyright (c) 2023 Karl STEIN
  */
 
 /**
  * Merges two arrays and returns the new one.
- * @param {[]} a
- * @param {[]} b
- * @param {Function} fn
- * @return {[]}
+ * @param a
+ * @param b
+ * @param fn
  */
-function mergeArrays(a, b, fn) {
+function mergeArrays<A, B>(a: A[], b: B[], fn: (...args: any[]) => any): Array<A | B> {
   const result = [];
 
   for (let i = 0; i < a.length; i += 1) {
@@ -37,10 +36,9 @@ function mergeArrays(a, b, fn) {
 
 /**
  * Merge deep objects
- * @param {*} args
- * @return {*}
+ * @param args
  */
-function deepExtend(...args) {
+export function deepExtend(...args: any[]): any {
   let a = args.shift();
 
   for (let i = 0; i < args.length; i += 1) {
@@ -53,10 +51,10 @@ function deepExtend(...args) {
         if (a instanceof Array && b instanceof Array) {
           a = mergeArrays(a, b, deepExtend);
         } else {
-          const keys = Object.keys(b);
+          const keys: string[] = Object.keys(b);
 
           for (let j = 0; j < keys.length; j += 1) {
-            const key = keys[j];
+            const key: string = keys[j];
 
             // Avoid prototype pollution.
             if (key !== '__proto__') {

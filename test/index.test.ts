@@ -1,9 +1,10 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2020 Karl STEIN
+ * Copyright (c) 2023 Karl STEIN
  */
 
-import deepExtend from '../src/deepExtend';
+import { describe, expect, it } from '@jest/globals';
+import deepExtend from '../src/index';
 
 describe('deepExtend(null, null)', () => {
   it('should return null', () => {
@@ -151,6 +152,7 @@ describe('deepExtend({}, { __proto__: { polluted: "polluted" } })', () => {
     const b = JSON.parse('{"__proto__": {"polluted": "polluted"}}');
     const result = deepExtend(a, b);
     expect(result).toStrictEqual({});
+    // @ts-ignore
     expect({}.polluted).toBeUndefined();
   });
 });

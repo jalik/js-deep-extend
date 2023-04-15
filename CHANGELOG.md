@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0
+
+- Added TypeScript declaration files
+
 ## v1.1.14
 
 - Upgraded dependencies
