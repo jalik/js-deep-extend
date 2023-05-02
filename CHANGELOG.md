@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.2 (2023-05-01)
+
+- Removed named export `{ deepExtend }` from index file (it should not break things since the official way is to use the import default syntax)
+- Upgraded dependencies
+
 ## v1.2.1 (2023-04-14)
 
 - Added missing dev dependency (rimraf)
