@@ -1,7 +1,7 @@
 {
   "name": "@jalik/deep-extend",
   "version": "1.2.2",
-  "description": "A utility to merge deep objects.",
+  "description": "Deep merge any objects",
   "license": "MIT",
   "keywords": [
     "extend",

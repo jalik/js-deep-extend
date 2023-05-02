@@ -7,11 +7,11 @@
 ![GitHub](https://img.shields.io/github/license/jalik/js-deep-extend.svg)
 ![npm](https://img.shields.io/npm/dt/@jalik/deep-extend.svg)
 
-A utility to merge deep objects.
+Deep merge any objects.
 
-## Introduction
+## Sandbox
 
-Use it when you need to merge nested objects.
+Play with the lib here: https://codesandbox.io/s/jalik-deep-extend-demo-wyeo99?file=/src/index.js
 
 ## Merging deep objects
 
