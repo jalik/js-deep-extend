@@ -13,6 +13,15 @@ Deep merge any objects.
 
 Play with the lib here: https://codesandbox.io/s/jalik-deep-extend-demo-wyeo99?file=/src/index.js
 
+## Installing
+
+```shell
+npm i -P @jalik/deep-extend
+```
+```shell
+yarn add @jalik/deep-extend
+```
+
 ## Merging deep objects
 
 The following code shows how to merge objects without losing values that are not defined in objects
