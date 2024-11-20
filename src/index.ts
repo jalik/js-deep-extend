@@ -1,6 +1,6 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2023 Karl STEIN
+ * Copyright (c) 2024 Karl STEIN
  */
 
 /**
@@ -44,7 +44,7 @@ function deepExtend (...args: any[]): any {
   for (let i = 0; i < args.length; i += 1) {
     const b = args[i]
 
-    if (a !== null && b !== null && typeof a !== 'undefined' && typeof b !== 'undefined') {
+    if (a != null && b != null) {
       // Merge objects
       if (typeof a === 'object' && typeof b === 'object') {
         // Merge arrays
@@ -67,9 +67,11 @@ function deepExtend (...args: any[]): any {
           }
         }
       }
-    } else if (b !== null && typeof b !== 'undefined') {
+    } else if (b != null) {
       if (b instanceof Array) {
         a = mergeArrays([], b, deepExtend)
+      } else if (typeof b === 'object') {
+        a = deepExtend({}, b)
       } else {
         a = b
       }

@@ -1,6 +1,6 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2023 Karl STEIN
+ * Copyright (c) 2024 Karl STEIN
  */
 
 import { describe, expect, it } from '@jest/globals'
@@ -60,27 +60,45 @@ describe('deepExtend(object, object)', () => {
   it('should replace existing attributes', () => {
     const a = { a: 1 }
     const b = { a: 2 }
-    expect(deepExtend(a, b)).toEqual(b)
+    expect(deepExtend(a, b)).toStrictEqual(b)
   })
 
   it('should merge new attributes', () => {
     const a = { a: 1 }
     const b = { b: 2 }
     const r = { a: 1, b: 2 }
-    expect(deepExtend(a, b)).toEqual(r)
+    expect(deepExtend(a, b)).toStrictEqual(r)
   })
 
   it('should merge objects recursively', () => {
     const a = { a: { b: 1, c: 3 }, d: 4 }
     const b = { a: { b: 2 } }
     const r = { a: { b: 2, c: 3 }, d: 4 }
-    expect(deepExtend(a, b)).toEqual(r)
+    expect(deepExtend(a, b)).toStrictEqual(r)
   })
 
   it('should not modify input array', () => {
-    const a = { array: null }
-    const b = { array: [1, 2, 3] }
-    expect(deepExtend(a, b).array).not.toBe(b.array)
+    const a = { array: [] }
+    const b = { array: [1, 2] }
+    const r = deepExtend({}, a, b)
+
+    r.array[0] = 8
+    r.array[1] = 9
+
+    expect(a.array).toStrictEqual([])
+    expect(b.array).toStrictEqual([1, 2])
+  })
+
+  it('should not modify nested objects', () => {
+    const a = { child: { a: 1 } }
+    const b = { child: { b: 2 } }
+    const r = deepExtend({}, a, b)
+
+    r.child.a = null
+    r.child.b = null
+
+    expect(a.child).toStrictEqual({ a: 1 })
+    expect(b.child).toStrictEqual({ b: 2 })
   })
 })
 
