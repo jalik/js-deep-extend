@@ -1,6 +1,12 @@
 # Changelog
 
-## v1.2.3 (2024-11-18)
+## v2.0.0 (2024-11-18)
+
+**BREAKING CHANGES**
+
+- chore(deps): move to node >= 20
+
+**OTHERS**
 
 - fix: do not use original object reference when merging nested objects
 
