@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.0 (2025-11-20)
+
+**BREAKING CHANGES**
+
+- chore: remove default export
+
 ## v2.0.0 (2024-11-18)
 
 **BREAKING CHANGES**

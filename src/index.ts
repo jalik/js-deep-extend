@@ -1,6 +1,6 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2024 Karl STEIN
+ * Copyright (c) 2025 Karl STEIN
  */
 
 /**
@@ -38,7 +38,7 @@ function mergeArrays<A, B> (a: A[], b: B[], fn: (...args: any[]) => any): Array<
  * Merge deep objects
  * @param args
  */
-function deepExtend (...args: any[]): any {
+export function deepExtend (...args: any[]): any {
   let a = args.shift()
 
   for (let i = 0; i < args.length; i += 1) {
@@ -79,5 +79,3 @@ function deepExtend (...args: any[]): any {
   }
   return a
 }
-
-export default deepExtend

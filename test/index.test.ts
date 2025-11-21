@@ -1,10 +1,10 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2024 Karl STEIN
+ * Copyright (c) 2025 Karl STEIN
  */
 
 import { describe, expect, it } from '@jest/globals'
-import deepExtend from '../src/index'
+import { deepExtend } from '../src'
 
 describe('deepExtend(null, null)', () => {
   it('should return null', () => {

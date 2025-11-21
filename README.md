@@ -28,7 +28,7 @@ The following code shows how to merge objects without losing values that are not
 to merge.
 
 ```js
-import deepExtend from "@jalik/deep-extend";
+import { deepExtend } from "@jalik/deep-extend";
 
 const defaultColors = {
   cold: {
@@ -76,7 +76,7 @@ The result:
 See below how it is easy to merge arrays recursively.
 
 ```js
-import deepExtend from "@jalik/deep-extend";
+import { deepExtend } from "@jalik/deep-extend";
 
 const a = [1, [2, [3]]];
 const b = [undefined, [4, [undefined, 5], 6], 7];
