@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.1 (2025-12-04)
+
+- deps: upgrade dependencies
+
 ## v3.0.0 (2025-11-20)
 
 **BREAKING CHANGES**
